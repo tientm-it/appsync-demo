@@ -3,14 +3,14 @@ import { graphql } from "react-apollo";
 import { buildSubscription } from "aws-appsync";
 import { Row, Col, Alert, Card } from "antd";
 
-import graphQuery from "../../graphql/GraphQFaceRecognition";
+import graphQuery from "../../graphql/GraphQCountPeople";
 import ListCamera from "./ListCamera";
 import CameraPlayer from "./CameraPlayer";
 import withClient from "../../components/AwsAppSync";
 
 import "./style.scss";
 
-class Camera extends Component {
+class Count extends Component {
   state = {
     currentCamera: undefined
   };
@@ -28,7 +28,6 @@ class Camera extends Component {
   };
 
   render() {
-    console.log(process.env);
     const { error, items, loading } = this.props;
     const { currentCamera } = this.state;
     const sortedItems = items
@@ -43,7 +42,7 @@ class Camera extends Component {
       });
 
     return (
-      <Card title="Face Recognition" bordered={false}>
+      <Card title="People Count" bordered={false}>
         <div className="camera">
           {error ? (
             <Alert
@@ -85,11 +84,11 @@ export default withClient(
     props: props => {
       return {
         error: props.data.error,
-        items: (props.data.listCameras || {}).items || [],
+        items: (props.data.listCountPeople || {}).items || [],
         subscribeToMore: props.data.subscribeToMore,
         loading: props.data.loading
       };
     }
-  })(Camera),
-  "clientOne"
+  })(Count),
+  "clientTwo"
 );

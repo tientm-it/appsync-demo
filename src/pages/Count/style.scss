@@ -1,0 +1,31 @@
+.camera {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  overflow-y: hidden;
+  top: 50px;
+
+  &__wapper {
+    width: 100%;
+  }
+
+  .list-item {
+    .ant-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .camera-item {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .camera-title {
+    text-align: center;
+  }
+}

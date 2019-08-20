@@ -1,0 +1,128 @@
+.list-camera {
+  &__item {
+    li {
+      cursor: inherit !important;
+    }
+
+    .ant-list-item-action {
+      height: 30px;
+      li {
+        vertical-align: middle;
+        min-width: 60px;
+      }
+      em {
+        display: none;
+      }
+    }
+
+    &-avatar {
+      min-width: 250px;
+      height: auto !important;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+
+  li {
+    border-bottom: none !important;
+  }
+
+  &-title {
+    text-align: left;
+
+    &-name {
+      font-weight: 600;
+      text-align: justify;
+    }
+
+    &.description {
+      color: #a5a4a4;
+
+      div:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  .ant-list-item-action {
+    text-align: left;
+
+    span,
+    i {
+      color: white;
+    }
+  }
+
+  .video-duration {
+    line-height: 20px;
+    width: 40px;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    top: 20px;
+    left: 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .ant-list-item {
+    position: relative;
+  }
+
+  .ant-list-item-extra {
+    margin-left: 10px !important;
+    display: flex;
+    i {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.list-camera {
+  &-loading {
+    &.ant-skeleton-active {
+      background: transparent;
+
+      .ant-skeleton-title,
+      .ant-skeleton-paragraph > li {
+        background: linear-gradient(
+          90deg,
+          transparent 25%,
+          #1890ff 37%,
+          transparent 63%
+        ) !important;
+        background-size: 400% 100% !important;
+        animation: ant-skeleton-loading 1.4s ease infinite !important;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+@keyframes itemAction {
+  to {
+    background-color: #fa8072;
+  }
+  100% {
+    width: 120%;
+  }
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.blink {
+  text-decoration: blink;
+  animation-name: blinker;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
