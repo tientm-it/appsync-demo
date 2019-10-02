@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { List, Avatar, Spin, Icon } from "antd";
+
 import { getFile } from "../../../services/file.service";
 
 const formatDate = date => {
@@ -91,11 +92,13 @@ class Item extends Component {
 
   renderAvatar = () => {
     const { changeCamera, data } = this.props;
-    const { imageUrl } = this.state;
+    const { imageUrl, loading } = this.state;
     if (imageUrl) {
       return (
         <Avatar
-          className="list-camera__item-avatar"
+          className={`list-camera__item-avatar ${
+            loading ? `loading` : `loaded`
+          }`}
           size="large"
           shape="square"
           src={imageUrl}

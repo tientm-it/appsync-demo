@@ -20,6 +20,23 @@
       height: auto !important;
       cursor: pointer;
       text-align: center;
+
+      .loaded > * > img {
+        opacity: 1 !important;
+      }
+
+      &:not(.loaded) {
+        opacity: 0;
+        background-color: #1890ff;
+      }
+
+      img {
+        // position: absolute;?
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: opacity 1s linear;
+      }
     }
   }
 
